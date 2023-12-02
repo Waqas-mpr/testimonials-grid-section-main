@@ -1,0 +1,229 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap");
+
+:root {
+	--moderate-violet: hsl(263, 55%, 52%);
+	--dark-grayish-blue: hsl(217, 19%, 35%);
+	--dark-blackish-blue: hsl(219, 29%, 14%);
+	--white: hsl(0, 0%, 100%);
+	--transparent-dark-blackish-blue: hsl(219, 29%, 14%, 0.7);
+	--transparent-white: hsl(0, 0%, 100%, 0.7);
+	--transparent-light-gray: hsl(0, 0%, 81%, 0.7);
+
+	--light-gray: hsl(0, 0%, 81%);
+	--light-grayish--blue: hsl(210, 46%, 95%);
+
+	--card-width: 19rem;
+
+	--ff-barlow: "Barlow Semi Condensed", sans-serif;
+
+	--fw-500: 500;
+	--fw-600: 600;
+	--fw-700: 700;
+	--fw-800: 800;
+
+	--fs-300: 0.75rem;
+	--fs-400: 1rem;
+	--fs-500: 1.25rem;
+	--fs-600: 1.5rem;
+	--fs-700: 1.75rem;
+	--fs-800: 2rem;
+	--fs-900: 3rem;
+
+	--padding: 2rem;
+	--text-padding: 1rem;
+	--heading-padding: 1.5rem;
+
+	--margin: 1.5rem;
+	--text-margin: 1rem;
+	--image--margin: 1.5rem;
+	--heading-margin: 1.5rem;
+	--gap: 1.5rem;
+
+	--columns: 3;
+	--span: 2;
+	--border-radius: 0.5rem;
+}
+
+/*--------------------------*/
+/*  Reset                   */
+/*--------------------------*/
+
+/* https://piccalil.li/blog/a-modern-css-reset */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+	margin: 0;
+	padding: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+	list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+	scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+	background-color: var(--light-grayish--blue);
+	color: var(--dark-blackish-blue);
+	min-height: 100vh;
+	text-rendering: optimizeSpeed;
+	line-height: 1.5;
+	font-family: var(--ff-barlow);
+	font-size: 13px;
+	font-weight: var(--fw-500);
+	position: relative;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+	text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+	max-width: 100%;
+	display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+	html:focus-within {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+.testimonials-container {
+	display: grid;
+	align-content: center;
+	width: 80%;
+	gap: var(--gap);
+	margin-inline: auto;
+	margin-block: var(--margin);
+}
+.testimonial {
+	background-color: var(--white);
+	padding: var(--padding);
+	border-radius: var(--border-radius);
+}
+
+.moderate-violet {
+	background-color: var(--moderate-violet);
+}
+
+.dark-grayish-blue {
+	background-color: var(--dark-grayish-blue);
+}
+.dark-blackish-blue {
+	background-color: var(--dark-blackish-blue);
+}
+
+.profile-container {
+	display: flex;
+}
+.profile-image {
+	border-radius: 50%;
+	aspect-ratio: 1/1;
+	margin-right: var(--image--margin);
+	border: 0.3rem solid var(--moderate-violet);
+}
+
+.profile {
+	margin-block: auto;
+	line-height: 1.5rem;
+}
+.name {
+}
+.status {
+	font-weight: var(--fw-600);
+	font-size: var(--fs-400);
+	letter-spacing: 0.02rem;
+	color: var(--transparent-light-gray);
+}
+
+.content-container {
+	margin-top: var(--margin);
+	display: grid;
+	gap: var(--gap);
+}
+.heading {
+	font-size: var(--fs-700);
+	letter-spacing: 0.02rem;
+	font-weight: var(--fw-700);
+	line-height: 2.25rem;
+}
+
+.content {
+	font-size: var(--fs-400);
+	letter-spacing: 0.02rem;
+	color: var(--transparent-light-gray);
+}
+
+.text-white {
+	color: var(--white);
+}
+
+.text-transparent-white {
+	color: var(--transparent-white);
+}
+
+.quote {
+	background-image: url("./images/bg-pattern-quotation.svg");
+	background-repeat: no-repeat;
+	background-position: 85% 0;
+	background-size: 11rem;
+}
+
+@media screen and (min-width: 700px) {
+	.testimonials-container {
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	.grid-col-span-2 {
+		grid-column: span 2;
+	}
+
+	.grid-row-span-2 {
+		grid-column-start: 4;
+		grid-row: 1/3;
+	}
+}
