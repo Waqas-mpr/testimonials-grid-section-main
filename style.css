@@ -133,12 +133,19 @@ select {
 }
 
 .testimonials-container {
-	display: grid;
 	align-content: center;
-	width: 80%;
+	width: 90%;
 	gap: var(--gap);
 	margin-inline: auto;
 	margin-block: var(--margin);
+	display: grid;
+	grid-auto-columns: 1fr;
+	grid-template-areas:
+		"one"
+		"two"
+		"three"
+		"four"
+		"five";
 }
 .testimonial {
 	background-color: var(--white);
@@ -161,6 +168,8 @@ select {
 	display: flex;
 }
 .profile-image {
+	width: 4.5rem;
+	height: 4.5rem;
 	border-radius: 50%;
 	aspect-ratio: 1/1;
 	margin-right: var(--image--margin);
@@ -212,18 +221,55 @@ select {
 	background-position: 85% 0;
 	background-size: 11rem;
 }
+.testimonial:nth-child(1) {
+	grid-area: one;
+}
+.testimonial:nth-child(2) {
+	grid-area: two;
+}
+.testimonial:nth-child(3) {
+	grid-area: three;
+}
+.testimonial:nth-child(4) {
+	grid-area: four;
+}
+.testimonial:nth-child(5) {
+	grid-area: five;
+}
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 33em) {
 	.testimonials-container {
-		grid-template-columns: repeat(4, 1fr);
+		grid-template-areas:
+			"one one"
+			"two three"
+			"five five"
+			"four four";
 	}
+}
 
-	.grid-col-span-2 {
-		grid-column: span 2;
+@media screen and (min-width: 38em) {
+	.testimonials-container {
+		grid-template-areas:
+			"one one"
+			"two five"
+			"three five"
+			"four four";
 	}
+}
 
-	.grid-row-span-2 {
-		grid-column-start: 4;
-		grid-row: 1/3;
+@media screen and (min-width: 54em) {
+	.testimonials-container {
+		grid-template-areas:
+			"one one two"
+			"five five five"
+			"three four four";
+	}
+}
+
+@media screen and (min-width: 75em) {
+	.testimonials-container {
+		grid-template-areas:
+			"one one two five"
+			"three four four five";
 	}
 }
